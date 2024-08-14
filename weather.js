@@ -1,10 +1,10 @@
 // Requiring modules
 const TelegramBot = require('node-telegram-bot-api')
 const request = require('request')
-require('dotenv').config();
- 
+
+
 // Token obtained from bot father
-const token = process.env.token;
+const token = "6123982971:AAGF4ilFqjTfc2WvwVMddz_z16Nynk4RQes"
 
 const bot = new TelegramBot(token, { polling: true });
 console.log('APP RUNING>>>>>');
@@ -23,7 +23,7 @@ bot.onText(/\/city (.+)/, function (msg, match) {
     const city = match[1];
     const chatId = msg.chat.id; 
 
-    const query = process.env.openweatherapi + city + process.env.appid;
+    const query ='http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&APPID=40a44f7cdec59c690504776068ed0970' ;
    
     // Key obtained from openweathermap API
     request(query, 
